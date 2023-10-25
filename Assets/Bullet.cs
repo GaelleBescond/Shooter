@@ -10,13 +10,14 @@ public class Bullet : MonoBehaviour
     public Joueur monCreateur;
     public Enemy target;
     public float speed;
+    private float timer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         //monCreateur = FindObjectOfType<Joueur>();
         myRigidbody = gameObject.GetComponent<Rigidbody>();
-        myRigidbody.velocity = Vector3.up*speed;
+        myRigidbody.velocity = Vector3.up * speed;
     }
 
 
@@ -26,5 +27,15 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= 3)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

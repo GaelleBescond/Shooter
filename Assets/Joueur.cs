@@ -14,6 +14,7 @@ public class Joueur : MonoBehaviour
     public float speed = 0.05f; //player speed
     public int Score; //will define weapon mode
     public int level = 1; //weapon mode
+    public int bonus = 0; //will change when player receives a bonus
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +27,7 @@ public class Joueur : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject jeViensDeNaitre = Instantiate(prefabBullet, transform.position + new Vector3(0, 0.7f, 0), transform.rotation);
-            //récupère les données du réateur pour le remodifier derrière
-            jeViensDeNaitre.GetComponent<Bullet>().monCreateur = this;
+            shootBullet(level, bonus);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -58,5 +57,12 @@ public class Joueur : MonoBehaviour
         textScore.text = Score.ToString();
         textLevel.text = level.ToString();
 
+    }
+
+    void shootBullet(int level, int bonus)
+    {
+        GameObject jeViensDeNaitre = Instantiate(prefabBullet, transform.position + new Vector3(0, 0.7f, 0), transform.rotation);
+        //récupère les données du réateur pour le remodifier derrière
+        jeViensDeNaitre.GetComponent<Bullet>().monCreateur = this;
     }
 }
