@@ -1,0 +1,23 @@
+Ennemis lâchent des bonus (instantiate)
+		- Appliquer bonus à joueur
+
+Différents types d'ennemis (prefabs)
+	- Quand ennemi spawn, choix entre random enum ou random hp
+		- ennemis attirés par le joueur
+		- ennemis rapides
+		- ennemis esquive
+	- boss 
+
+	Spawn d'ennemis (instantiate)
+		- Empty qui se déplace
+		- Boss qui fait pop petits ennemis
+		
+Différents types de tirs (enums)
+	- Selon score du joueur, enum le mode de tir
+		- Action tir provoque selon le mode de tir du joueur:
+			- simple double triple, patterns etc...
+
+Score (variable dans joueur)
+	- Quand enemybody disparait
+		- Appliquer += score
+		- display score dans UI
