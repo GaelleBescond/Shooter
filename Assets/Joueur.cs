@@ -25,16 +25,18 @@ public class Joueur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //shoot
         if (Input.GetKeyDown(KeyCode.Space))
         {
             shootBullet(level, bonus);
         }
+        //move
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * speed;
             if (transform.position.x < limitL.position.x)
             {
-                transform.position = new Vector3(limitR.position.x, transform.position.y, transform.position.z);
+                transform.position = new Vector3(limitL.position.x, transform.position.y, transform.position.z);
             }
         }
         if (Input.GetKey(KeyCode.RightArrow))
@@ -42,9 +44,10 @@ public class Joueur : MonoBehaviour
             transform.position += Vector3.right * speed;
             if (transform.position.x > limitR.position.x)
             {
-                transform.position = new Vector3(limitL.position.x, transform.position.y, transform.position.z);
+                transform.position = new Vector3(limitR.position.x, transform.position.y, transform.position.z);
             }
         }
+        //level up
         if (Input.GetKey(KeyCode.DownArrow))
         {
             if (Score >= level * 100)
@@ -53,7 +56,7 @@ public class Joueur : MonoBehaviour
                 level += 1;
             }
         }
-
+        //UI update
         textScore.text = Score.ToString();
         textLevel.text = level.ToString();
 
@@ -61,8 +64,8 @@ public class Joueur : MonoBehaviour
 
     void shootBullet(int level, int bonus)
     {
-        GameObject jeViensDeNaitre = Instantiate(prefabBullet, transform.position + new Vector3(0, 0.7f, 0), transform.rotation);
+        GameObject newBullet = Instantiate(prefabBullet, transform.position + new Vector3(0, 0.7f, 0), transform.rotation);
         //récupère les données du réateur pour le remodifier derrière
-        jeViensDeNaitre.GetComponent<Bullet>().monCreateur = this;
+        newBullet.GetComponent<Bullet>().monCreateur = this;
     }
 }

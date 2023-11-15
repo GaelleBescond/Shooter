@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     public Rigidbody selfBody;
     public GameObject enemy;
     public float speed;
+    public float spawntime;
 
      private float timer = 0;
     // Start is called before the first frame update
@@ -22,13 +23,16 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        //à changer pour donner une^vitesse au lieu d'un transform
         if (transform.position.x < limitL.position.x || transform.position.x > limitR.position.x)
         {
             selfBody.velocity *= -1;
         }
-        if (timer >= 1)
+                      
+        if (timer >= spawntime)
         {
             Instantiate(enemy, transform.position, transform.rotation);
+            //ajouter paramètres d'ennemis: direction et type
             timer = 0;
         }
     }

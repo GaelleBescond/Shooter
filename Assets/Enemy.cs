@@ -20,8 +20,10 @@ public class Enemy : MonoBehaviour
          monJoueur = FindObjectOfType<Joueur>();
     }
 
+    //add check collider
     private void OnCollisionEnter(Collision collision)
     {
+        //hp loss
         hp--;
         if (hp <= 0)
         {
