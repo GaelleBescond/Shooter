@@ -16,4 +16,6 @@ Différents types de tirs (enums) +++
 
 
 Level du joueur = pattern de tir, difficulté supplémentaire? Densité d'ennemis?
-Bonus = amélioration temporaire du level du joueur
+Bonus
+	+ amélioration temporaire du level du joueur
+	+ multiplication du score
