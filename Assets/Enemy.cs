@@ -5,7 +5,7 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
-    public Joueur monJoueur;
+    public Player player;
     public GameObject prefabBonus;
     public Transform limit;
     public int hp; //hp
@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     {
         referenceLibrary = FindObjectOfType<ReferenceLibrary>();
         limit = referenceLibrary.LimitL;
-         monJoueur = FindObjectOfType<Joueur>();
+         player = FindObjectOfType<Player>();
     }
 
     //add check collider
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
-            monJoueur.Score += scoreValue;
+            player.Score += scoreValue;
             Destroy(gameObject);
             int r = Random.Range(0, 10);
             if (r < 3)

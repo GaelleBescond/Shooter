@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     public Transform limitR;
     public Rigidbody selfBody;
     public GameObject enemy;
+    public GameObject enemy2;
     public float speed;
     public float spawntime;
 

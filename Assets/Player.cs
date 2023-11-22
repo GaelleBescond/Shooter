@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Joueur : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public GameObject prefabBullet;
     public Transform limitL;
     public Transform limitR;
     public TextMeshProUGUI textScore;
     public TextMeshProUGUI textLevel;
+
+    public GameObject levelUpEffect;
 
     public float speed = 0.05f; //player speed
     public int Score; //will define weapon mode
@@ -54,6 +56,8 @@ public class Joueur : MonoBehaviour
             {
                 Score -= level * 100;
                 level += 1;
+               GameObject levelUp = Instantiate(levelUpEffect, transform.position, transform.rotation);
+                //.transform.rotation = transform.rotation + new Vector3(-90, 0, 0);
             }
         }
         //UI update
@@ -65,7 +69,6 @@ public class Joueur : MonoBehaviour
     void shootBullet(int level, int bonus)
     {
         GameObject newBullet = Instantiate(prefabBullet, transform.position + new Vector3(0, 0.7f, 0), transform.rotation);
-        //récupère les données du réateur pour le remodifier derrière
-        newBullet.GetComponent<Bullet>().monCreateur = this;
+        newBullet.GetComponent<Bullet>().creator = this;
     }
 }

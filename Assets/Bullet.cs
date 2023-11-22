@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 {
 
     public Rigidbody myRigidbody;
-    public Joueur monCreateur;
+    public Player creator;
     public Enemy target;
     public float speed;
     private float timer = 0;
