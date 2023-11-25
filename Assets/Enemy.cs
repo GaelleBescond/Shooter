@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public Player player;
     public GameObject prefabBonus;
+    public GameObject explosion;
     public Transform limit;
     public int hp; //hp
     private string type; // enemy type will be to give different powerups
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
         {
             player.Score += scoreValue;
             Destroy(gameObject);
+            Instantiate(explosion, transform.position, transform.rotation);
             int r = Random.Range(0, 10);
             if (r < 3)
             {

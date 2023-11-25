@@ -146,8 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692c3ac819671c8408f893e91099f4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monJoueur: {fileID: 0}
+  player: {fileID: 0}
   prefabBonus: {fileID: 973132521421657870, guid: 5acdfc1226fd5d845b12414ac3371202, type: 3}
+  explosion: {fileID: 1716579186276099391, guid: 705f8738c00742540abf531aa1a39176, type: 3}
   limit: {fileID: 0}
   hp: 1
   scoreValue: 10
